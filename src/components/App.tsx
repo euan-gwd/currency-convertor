@@ -5,18 +5,20 @@ import Result from './Result/Result'
 import './App.css'
 
 function App() {
-  const [defaultCurrency, setDefaultCurrency] = React.useState({ value: 'GBP', label: 'GBP', icon: 'gb' })
+  const [selectedCurrency, setSelectedCurrency] = React.useState({ value: 'GBP', label: 'GBP', icon: 'gb' })
   const [amount, setAmount] = React.useState(1)
   const [results, setResults] = React.useState([])
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
+    console.log('handleSubmit -> selectedCurrency ', selectedCurrency)
+    console.log('handleSubmit -> amount ', amount)
   }
 
   return (
     <div className="app">
       <form onSubmit={handleSubmit} className="container">
-        <CurrencySelect currency={defaultCurrency} handleOnChange={setDefaultCurrency} />
+        <CurrencySelect selectedCurrency={selectedCurrency} handleOnChange={setSelectedCurrency} />
         <CurrencyAmount amount={amount} handleOnChange={setAmount} />
         <Result />
       </form>
