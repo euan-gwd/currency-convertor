@@ -19,7 +19,7 @@ function App() {
     const resultsClone = [...results]
     const updatedResults = resultsClone.map((result) => {
       const value = Number(result.value)
-      const newValue = Number.parseFloat(value * amount).toFixed(2)
+      const newValue = Number.parseFloat(value * amount).toFixed(3)
       result.value = newValue
       return result
     })

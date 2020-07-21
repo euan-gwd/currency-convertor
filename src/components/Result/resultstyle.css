@@ -41,14 +41,14 @@
 
 .result-icon {
   flex: 0.25;
-  height: 1.5rem;
+  height: 1em;
 }
 
 .result-text {
   flex: 2;
   margin: 0;
   padding: 0;
-  line-height: 1.5rem;
+  line-height: 1em;
   display: flex;
 }
 
