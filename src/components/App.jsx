@@ -16,14 +16,19 @@ function App() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    // const base = selectedCurrency.value
-    // FetchData(base, setResults)
+    const resultsClone = [...results]
+    const updatedResults = resultsClone.map((result) => {
+      const value = Number(result.value)
+      const newValue = Number.parseFloat(value * amount).toFixed(2)
+      result.value = newValue
+      return result
+    })
+    setResults(updatedResults)
   }
 
   React.useEffect(() => {
-    const base = selectedCurrency.value
-    FetchData(base, setResults)
-  }, [selectedCurrency.value])
+    FetchData(selectedCurrency, setResults)
+  }, [selectedCurrency])
 
   return (
     <div className="app">

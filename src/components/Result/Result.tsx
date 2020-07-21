@@ -3,7 +3,6 @@ import './resultstyle.css'
 
 export default function Result({ results, selectedCurrency }) {
   const displayResults = results.filter((result) => result.label !== selectedCurrency.value)
-
   return (
     <div className="result-container">
       <p className="result-header">{`Result:`}</p>

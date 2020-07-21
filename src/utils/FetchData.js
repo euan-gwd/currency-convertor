@@ -41,15 +41,17 @@ const mockResults = {
   },
 }
 
-export async function FetchData(base, updateResults) {
-  // const response = await axios.get(`${API}${base}`)
-  // const results = response.data.rates
-  const results = mockResults.data.rates
+export async function FetchData(selectedCurrency, updateResults) {
+  const base = selectedCurrency.value
+  const response = await axios.get(`${API}${base}`)
+  const results = response.data.rates
+  // const results = mockResults.data.rates
   const resultsArr = []
   for (const [key, value] of Object.entries(results)) {
     const icon = key.toLowerCase().slice(0, 2)
     const newItem = { value: Number.parseFloat(value).toFixed(3), label: key, icon: icon }
     resultsArr.push(newItem)
   }
+
   updateResults(resultsArr)
 }
