@@ -1,3 +1,16 @@
+.currency-select-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.currency-select-label {
+  flex: 0.75;
+}
+.currency-select {
+  flex: 2;
+}
+
 .option-icon {
   margin-right: 0.25rem;
 }

@@ -1,12 +1,14 @@
 import React from 'react'
 import CurrencySelect from './CurrencySelect/CurrencySelect'
+import CurrencyAmount from './CurrencyAmount/CurrencyAmount'
 import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <div className="Container">
+    <div className="app">
+      <div className="container">
         <CurrencySelect />
+        <CurrencyAmount />
       </div>
     </div>
   )

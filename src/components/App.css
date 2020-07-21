@@ -1,4 +1,4 @@
-.App {
+.app {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,9 +6,12 @@
   height: 100vh;
   min-width: 100vw;
   min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-.Container {
+.container {
   background-color: hsl(0, 0%, 100%);
   border-color: hsl(0, 0%, 80%);
   border-radius: 4px;
@@ -18,4 +21,7 @@
   height: 30em;
   box-sizing: border-box;
   padding: 1rem;
+  display: grid;
+  grid-auto-rows: 38px;
+  row-gap: 1rem;
 }

@@ -55,14 +55,15 @@ const CustomSelectValue = (props) => (
 
 export default function CurrencySelect() {
   return (
-    <label htmlFor="baseCurrency">
-      My currency
+    <div className="currency-select-container">
+      <label htmlFor="baseCurrency" className="currency-select-label">{`My currency:`}</label>
       <Select
         name="baseCurrency"
         placeholder="Please select a currency..."
         options={options}
         components={{ Option: CustomSelectOption, SingleValue: CustomSelectValue }}
+        className="currency-select"
       />
-    </label>
+    </div>
   )
 }
