@@ -8,6 +8,7 @@ export default function CurrencyAmount(props) {
       <div className="currency-amount-input">
         <input
           name="currencyAmount"
+          type="number"
           value={props.amount}
           className="currency-amount-input-value"
           onChange={(e) => props.handleOnChange(e.target.value)}
