@@ -8,13 +8,18 @@ function App() {
   const [defaultCurrency, setDefaultCurrency] = React.useState({ value: 'GBP', label: 'GBP', icon: 'gb' })
   const [amount, setAmount] = React.useState(1)
   const [results, setResults] = React.useState([])
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault()
+  }
+
   return (
     <div className="app">
-      <div className="container">
+      <form onSubmit={handleSubmit} className="container">
         <CurrencySelect currency={defaultCurrency} handleOnChange={setDefaultCurrency} />
-        <CurrencyAmount />
+        <CurrencyAmount amount={amount} handleOnChange={setAmount} />
         <Result />
-      </div>
+      </form>
     </div>
   )
 }

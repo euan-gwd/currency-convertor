@@ -1,11 +1,23 @@
 import React from 'react'
 import './currencyamountstyle.css'
 
-export default function CurrencyAmount() {
+export default function CurrencyAmount(props) {
+  const [amount, setAmount] = React.useState(props.amount)
+
   return (
     <div className="currency-amount-container">
       <label htmlFor="currencyAmount" className="currency-amount-label">{`Amount:`}</label>
-      <input name="currencyAmount" value={1} className="currency-amount-input" />
+      <div className="currency-amount-input">
+        <input
+          name="currencyAmount"
+          value={amount}
+          className="currency-amount-input-value"
+          onChange={(e) => setAmount(e.target.value)}
+        />
+        <div className="currency-amount-input-action">
+          <input type="submit" value="Submit" />
+        </div>
+      </div>
     </div>
   )
 }
