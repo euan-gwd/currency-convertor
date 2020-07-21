@@ -42,7 +42,7 @@
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
-  text-align: end;
+  /* text-align: end; */
 }
 
 .currency-amount-input-action {

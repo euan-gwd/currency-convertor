@@ -13,14 +13,14 @@ const CustomSelectOption = (props) => (
   </Option>
 )
 
-const CustomSelectValue = (props) => (
+const CustomSelectValue = ({ data }) => (
   <div>
-    <i className={`flag-icon flag-icon-${props.data.icon} option-icon`} />
-    {props.data.label}
+    <i className={`flag-icon flag-icon-${data.icon} option-icon`} />
+    {data.label}
   </div>
 )
 
-export default function CurrencySelect(props) {
+export default function CurrencySelect({ selectedCurrency, handleOnChange }) {
   return (
     <div className="currency-select-container">
       <label htmlFor="baseCurrency" className="currency-select-label">{`My currency:`}</label>
@@ -29,8 +29,8 @@ export default function CurrencySelect(props) {
         options={selectOptions}
         components={{ Option: CustomSelectOption, SingleValue: CustomSelectValue }}
         className="currency-select"
-        value={props.selectedCurrency}
-        onChange={props.handleOnChange}
+        value={selectedCurrency}
+        onChange={handleOnChange}
       />
     </div>
   )
