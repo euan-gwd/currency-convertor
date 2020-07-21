@@ -5,6 +5,9 @@ import './currencyselectstyle.css'
 
 const { Option } = components
 const options = [
+  { value: 'EUR', label: 'EUR', icon: 'eu' },
+  { value: 'GBP', label: 'GBP', icon: 'gb' },
+  { value: 'USD', label: 'USD', icon: 'us' },
   { value: 'CAD', label: 'CAD', icon: 'ca' },
   { value: 'HKD', label: 'HKD', icon: 'hk' },
   { value: 'ISK', label: 'ISK', icon: 'is' },
@@ -30,13 +33,11 @@ const options = [
   { value: 'CNY', label: 'CNY', icon: 'cn' },
   { value: 'NOK', label: 'NOK', icon: 'no' },
   { value: 'NZD', label: 'NZD', icon: 'nz' },
-  { value: 'ZAR', label: 'ZAR', icon: 'za' },
-  { value: 'USD', label: 'USD', icon: 'us' },
   { value: 'MXN', label: 'MXN', icon: 'mx' },
   { value: 'ILS', label: 'ILS', icon: 'il' },
-  { value: 'GBP', label: 'GBP', icon: 'gb' },
   { value: 'KRW', label: 'KRW', icon: 'kr' },
   { value: 'MYR', label: 'MYR', icon: 'my' },
+  { value: 'ZAR', label: 'ZAR', icon: 'za' },
 ]
 
 const CustomSelectOption = (props) => (
@@ -53,7 +54,7 @@ const CustomSelectValue = (props) => (
   </div>
 )
 
-export default function CurrencySelect() {
+export default function CurrencySelect(props) {
   return (
     <div className="currency-select-container">
       <label htmlFor="baseCurrency" className="currency-select-label">{`My currency:`}</label>
@@ -63,6 +64,8 @@ export default function CurrencySelect() {
         options={options}
         components={{ Option: CustomSelectOption, SingleValue: CustomSelectValue }}
         className="currency-select"
+        value={props.currency}
+        onChange={props.handleOnChange}
       />
     </div>
   )
