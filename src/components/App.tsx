@@ -27,7 +27,7 @@ function App() {
         <div className="container">
           <CurrencySelect selectedCurrency={selectedCurrency} handleOnChange={setSelectedCurrency} />
           <CurrencyAmount amount={amount} handleOnChange={setAmount} />
-          <Result results={results} />
+          {results.length > 0 && <Result results={results} />}
         </div>
       </form>
     </div>

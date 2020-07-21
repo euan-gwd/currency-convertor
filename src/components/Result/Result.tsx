@@ -1,7 +1,7 @@
 import React from 'react'
 import './resultstyle.css'
 
-export default function Result({ results = [{ value: 1, label: 'GBP', icon: 'gb' }] }) {
+export default function Result({ results }) {
   return (
     <div className="result-container">
       <p className="result-header">{`Result:`}</p>
