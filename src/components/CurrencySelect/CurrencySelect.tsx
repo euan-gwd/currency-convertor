@@ -1,7 +1,7 @@
 import React from 'react'
 import Select, { components } from 'react-select'
 import { selectOptions } from './options'
-import 'flag-icon-css/css/flag-icon.min.css'
+
 import './currencyselectstyle.css'
 
 const { Option } = components

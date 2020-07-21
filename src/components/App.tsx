@@ -1,7 +1,12 @@
 import React from 'react'
+
 import CurrencySelect from './CurrencySelect/CurrencySelect'
 import CurrencyAmount from './CurrencyAmount/CurrencyAmount'
 import Result from './Result/Result'
+
+import { FetchData } from '../utils/FetchData'
+
+import 'flag-icon-css/css/flag-icon.min.css'
 import './App.css'
 
 function App() {
@@ -11,16 +16,19 @@ function App() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    console.log('handleSubmit -> selectedCurrency ', selectedCurrency)
-    console.log('handleSubmit -> amount ', amount)
+    const base = selectedCurrency.value
+    console.log('handleSubmit -> base', base)
+    FetchData(base, setResults)
   }
 
   return (
     <div className="app">
-      <form onSubmit={handleSubmit} className="container">
-        <CurrencySelect selectedCurrency={selectedCurrency} handleOnChange={setSelectedCurrency} />
-        <CurrencyAmount amount={amount} handleOnChange={setAmount} />
-        <Result />
+      <form onSubmit={handleSubmit} className="form">
+        <div className="container">
+          <CurrencySelect selectedCurrency={selectedCurrency} handleOnChange={setSelectedCurrency} />
+          <CurrencyAmount amount={amount} handleOnChange={setAmount} />
+          <Result results={results} />
+        </div>
       </form>
     </div>
   )
