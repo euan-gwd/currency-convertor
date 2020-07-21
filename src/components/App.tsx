@@ -16,10 +16,14 @@ function App() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    const base = selectedCurrency.value
-    console.log('handleSubmit -> base', base)
-    FetchData(base, setResults)
+    // const base = selectedCurrency.value
+    // FetchData(base, setResults)
   }
+
+  React.useEffect(() => {
+    const base = selectedCurrency.value
+    FetchData(base, setResults)
+  }, [selectedCurrency.value])
 
   return (
     <div className="app">
