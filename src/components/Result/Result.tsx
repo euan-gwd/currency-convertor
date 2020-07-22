@@ -1,7 +1,7 @@
 import React from 'react'
 import './resultstyle.css'
 
-type Props = {
+interface Props {
   results: []
   selectedCurrency: {
     label: string

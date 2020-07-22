@@ -1,7 +1,7 @@
 import React from 'react'
 import './currencyamountstyle.css'
 
-type Props = {
+interface Props {
   amount: number
   handleOnChange: (text: string) => void
 }
