@@ -14,16 +14,18 @@ function App() {
   const [amount, setAmount] = React.useState(1)
   const [results, setResults] = React.useState([])
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault()
-    const resultsClone = [...results]
-    const updatedResults = resultsClone.map((result) => {
-      const value = Number.parseFloat(result.value)
-      const newValue = (value * amount).toFixed(3)
-      result.value = newValue
-      return result
-    })
-    setResults(updatedResults)
+  const calculateCurrencyExchange = (newAmount) => {
+    if (amount !== newAmount) {
+      setAmount(newAmount)
+      const resultsClone = [...results]
+      const updatedResults = resultsClone.map((result) => {
+        const value = Number.parseFloat(result.value)
+        const newValue = (value * newAmount).toFixed(3)
+        result.value = newValue
+        return result
+      })
+      setResults(updatedResults)
+    }
   }
 
   React.useEffect(() => {
@@ -32,13 +34,13 @@ function App() {
 
   return (
     <div className="app">
-      <form onSubmit={handleSubmit} className="form">
+      <div className="form">
         <div className="container">
           <CurrencySelect selectedCurrency={selectedCurrency} handleOnChange={setSelectedCurrency} />
-          <CurrencyAmount amount={amount} handleOnChange={setAmount} />
+          <CurrencyAmount amount={amount} calculateResult={calculateCurrencyExchange} />
           {results.length > 0 && <Result results={results} selectedCurrency={selectedCurrency} />}
         </div>
-      </form>
+      </div>
     </div>
   )
 }

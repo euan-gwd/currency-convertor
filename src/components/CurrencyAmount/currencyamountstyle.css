@@ -72,3 +72,9 @@
 .currency-amount-input-action input:hover {
   color: hsl(0, 0%, 50%);
 }
+
+.currency-amount-input-error {
+  color: hsl(0, 100%, 50%);
+  font-size: 80%;
+  text-align: end;
+}

@@ -1,27 +1,45 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers'
+import * as yup from 'yup'
+
 import './currencyamountstyle.css'
 
 interface CurrencyAmountProps {
   amount: number
-  handleOnChange: (text: string) => void
+  calculateResult: (data: number) => void
 }
 
-export default function CurrencyAmount({ amount, handleOnChange }: CurrencyAmountProps) {
+interface FormInputs {
+  amount: number
+}
+
+const schema = yup.object().shape({
+  amount: yup.number().typeError('Amount must be a number').positive().integer().required(),
+})
+
+export default function CurrencyAmount({ amount, calculateResult }: CurrencyAmountProps) {
+  const { register, handleSubmit, errors } = useForm<FormInputs>({ resolver: yupResolver(schema) })
+  const onSubmit = (data: FormInputs) => calculateResult(data.amount)
+
   return (
-    <div className="currency-amount-container">
-      <label htmlFor="currencyAmount" className="currency-amount-label">{`Amount:`}</label>
-      <div className="currency-amount-input">
-        <input
-          name="currencyAmount"
-          type="number"
-          value={amount}
-          className="currency-amount-input-value"
-          onChange={(e) => handleOnChange(e.target.value)}
-        />
-        <div className="currency-amount-input-action">
-          <input type="submit" value="Submit" />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="currency-amount-container">
+        <label htmlFor="amount" className="currency-amount-label">{`Amount:`}</label>
+        <div className="currency-amount-input">
+          <input
+            name="amount"
+            type="number"
+            defaultValue={amount}
+            className="currency-amount-input-value"
+            ref={register}
+          />
+          <div className="currency-amount-input-action">
+            <input type="submit" value="Submit" />
+          </div>
         </div>
       </div>
-    </div>
+      <p className="currency-amount-input-error">{errors.amount?.message}</p>
+    </form>
   )
 }
