@@ -1,7 +1,12 @@
 import React from 'react'
 import './currencyamountstyle.css'
 
-export default function CurrencyAmount({ amount, handleOnChange }) {
+type Props = {
+  amount: number
+  handleOnChange: (text: string) => void
+}
+
+export default function CurrencyAmount({ amount, handleOnChange }: Props) {
   return (
     <div className="currency-amount-container">
       <label htmlFor="currencyAmount" className="currency-amount-label">{`Amount:`}</label>
