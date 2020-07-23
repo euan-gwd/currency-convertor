@@ -15,7 +15,7 @@ type FormInputs = {
 }
 
 const schema = yup.object().shape({
-  amount: yup.number().typeError('Amount must be a number').positive().integer().required(),
+  amount: yup.number().typeError('Amount must be a number').positive().required(),
 })
 
 export default function CurrencyAmount({ amount, calculateResult }: CurrencyAmountProps) {
