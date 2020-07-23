@@ -20,7 +20,7 @@ const CustomSelectValue = ({ data }) => (
   </div>
 )
 
-interface CurrencySelectProps {
+type CurrencySelectProps = {
   selectedCurrency: {}
   handleOnChange: () => void
 }

@@ -5,12 +5,12 @@ import * as yup from 'yup'
 
 import './currencyamountstyle.css'
 
-interface CurrencyAmountProps {
+type CurrencyAmountProps = {
   amount: number
   calculateResult: (data: number) => void
 }
 
-interface FormInputs {
+type FormInputs = {
   amount: number
 }
 
