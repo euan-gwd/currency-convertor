@@ -20,12 +20,7 @@ const CustomSelectValue = ({ data }) => (
   </div>
 )
 
-type CurrencySelectProps = {
-  selectedCurrency: {}
-  handleOnChange: () => void
-}
-
-export default function CurrencySelect({ selectedCurrency, handleOnChange }: CurrencySelectProps) {
+export default function CurrencySelect({ selectedCurrency, handleOnChange }) {
   return (
     <div className="currency-select-container">
       <label htmlFor="baseCurrency" className="currency-select-label">{`My currency:`}</label>

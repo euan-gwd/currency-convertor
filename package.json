@@ -1,5 +1,5 @@
 {
-  "name": "zumo-app",
+  "name": "currency-convertor-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

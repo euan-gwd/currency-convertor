@@ -21,10 +21,18 @@
   flex-wrap: wrap;
   justify-content: space-between;
   min-height: 38px;
-  outline: 0 !important;
+  outline: #2684ff;
   position: relative;
   transition: all 100ms;
   box-sizing: border-box;
+}
+
+.currency-amount-input:hover {
+  border-color: hsl(0, 0%, 70%);
+}
+
+.currency-amount-input-value:focus {
+  border-color: hsl(214, 100%, 57%);
 }
 
 .currency-amount-input-value {
@@ -42,7 +50,7 @@
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
-  text-align: end;
+  /* text-align: end; */
 }
 
 .currency-amount-input-action {

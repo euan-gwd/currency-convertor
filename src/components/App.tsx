@@ -9,22 +9,35 @@ import { FetchData } from '../utils/FetchData'
 import 'flag-icon-css/css/flag-icon.min.css'
 import './App.css'
 
+type ResultsType = {
+  value: string
+  label: string
+  icon: string
+}
+
+type UpdatedResultsType = {
+  value: string
+  label: string
+  icon: string
+}[]
+
 function App() {
   const [selectedCurrency, setSelectedCurrency] = React.useState({ value: 'GBP', label: 'GBP', icon: 'gb' })
   const [amount, setAmount] = React.useState(1)
   const [results, setResults] = React.useState([])
 
-  const calculateCurrencyExchange = (newAmount) => {
+  const calculateCurrencyExchange = (newAmount: typeof amount) => {
     if (amount !== newAmount) {
       setAmount(newAmount)
-      const resultsClone = [...results]
-      const updatedResults = resultsClone.map((result) => {
+      let resultsClone = [...results]
+      resultsClone.map((result: ResultsType) => {
         const value = Number.parseFloat(result.value)
-        const newValue = (value * newAmount).toFixed(3)
+        const newValue = (value * newAmount).toFixed(3).toString()
         result.value = newValue
         return result
       })
-      setResults(updatedResults)
+
+      setResults(resultsClone)
     }
   }
 

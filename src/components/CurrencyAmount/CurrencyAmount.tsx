@@ -27,13 +27,7 @@ export default function CurrencyAmount({ amount, calculateResult }: CurrencyAmou
       <div className="currency-amount-container">
         <label htmlFor="amount" className="currency-amount-label">{`Amount:`}</label>
         <div className="currency-amount-input">
-          <input
-            name="amount"
-            type="number"
-            defaultValue={amount}
-            className="currency-amount-input-value"
-            ref={register}
-          />
+          <input name="amount" defaultValue={amount} className="currency-amount-input-value" ref={register} />
           <div className="currency-amount-input-action">
             <input type="submit" value="Submit" />
           </div>
